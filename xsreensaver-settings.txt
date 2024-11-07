@@ -1,0 +1,6 @@
+installer xscreensaver
+lancer xscreensaver-settings
+onglet display mode:
+mode blank screen only
+onglet advanced:
+cocher uniquement power management enabled
