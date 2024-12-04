@@ -13,19 +13,20 @@ GPIO.setup(21, GPIO.OUT, initial=GPIO.LOW)   # Utiliser le port 21 pour allumer 
 
 time.sleep(3) # Attendre 3s
 
-duree = 10 #duree de l'ecran actif en secondes (10 minutes)
+duree = 3 # 300 duree de l'ecran actif en secondes (5 minutes)
 veille = False
 wait = 0
 
+#os.system("DISPLAY=:0 xscreensaver --no-splash &") # ne fonctionne pas
 try:
     while True:
         input_state = GPIO.input(14)  # Lire l'etat de la broche GPIO 14
         if input_state == GPIO.HIGH:
             wait = duree
-            os.system("echo avant if veille >> /tmp/veille_ecran.log")
+            #os.system("echo avant if veille >> /tmp/veille_ecran.log")
             if veille:
-               os.system("echo mise en veille >> /tmp/veille_ecran.log")
-               os.system("DISPLAY=:0 XAUTHORITY=~sonometre_listrac/.Xauthority xscreensaver-command --deactivate >> /tmp/veille_ecran.log 2>&1")
+               #os.system("echo mise en veille >> /tmp/veille_ecran.log")
+               os.system("DISPLAY=:0 XAUTHORITY=~sonometre_listrac/.Xauthority xscreensaver-command --deactivate")
                veille = False
                GPIO.output(21,GPIO.HIGH)
                while (wait > 0):

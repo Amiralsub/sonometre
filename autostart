@@ -1,0 +1,2 @@
+/usr/bin/chromium --start-fullscreen http://localhost:3000
+@/usr/bin/xscreensaver --no-splash
